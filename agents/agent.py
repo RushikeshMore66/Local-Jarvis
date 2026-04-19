@@ -2,9 +2,10 @@ from langchain_community.llms.ollama import Ollama
 from langchain.agents import create_react_agent, AgentExecutor
 from langchain.tools import tool
 from langchain_core.prompts import PromptTemplate
-
+from agents.system_tools import open_app, type_text, press_key, move_mouse, click_mouse
 import datetime
 import os
+
 
 # -------- Tools --------
 @tool
@@ -18,7 +19,15 @@ def open_notepad(dummy: str = None):
     os.system("notepad")
     return "Notepad opened successfully"
 
-tools = [get_time, open_notepad]
+tools = [
+    get_time,
+    open_notepad,
+    open_app,
+    type_text,
+    press_key,
+    move_mouse,
+    click_mouse
+]
 
 # -------- LLM --------
 llm = Ollama(model="phi3:mini")
@@ -33,9 +42,10 @@ You have access to tools:
 IMPORTANT: 
 -Always provide Action Input (even if empty string "")
 - Never write "No input required"
+-Only perform system actions when the user clearly asks.
+-Do not execute actions automatically without confirmation.
 
 Use this format:
-
 Question: {input}
 Thought: think step by step
 Action: one of [{tool_names}]
@@ -43,8 +53,6 @@ Action Input: input for tool
 Observation: result
 ... (repeat if needed)
 Final Answer: final response
-
-Begin!
 
 Question: {input}
 {agent_scratchpad}
