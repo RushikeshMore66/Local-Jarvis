@@ -1,0 +1,16 @@
+[project]
+name = "jarvis"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "faster-whisper>=1.2.1",
+    "langchain>=1.2.15",
+    "langchain-community>=0.4.1",
+    "langchain-core>=1.2.31",
+    "numpy>=2.4.4",
+    "pyttsx3>=2.99",
+    "scipy>=1.17.1",
+    "sounddevice>=0.5.5",
+]

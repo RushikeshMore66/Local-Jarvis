@@ -1,0 +1,17 @@
+langchain==0.1.16
+langchain-community==0.0.32
+langchain-core==0.1.52
+
+ollama==0.1.8
+
+faster-whisper==1.0.3
+sounddevice==0.4.6
+scipy==1.11.4
+numpy==1.26.4
+
+pyttsx3==2.90
+
+pydantic==1.10.13
+python-dotenv==1.0.1
+
+tqdm==4.66.2
