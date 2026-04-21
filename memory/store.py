@@ -1,4 +1,3 @@
-from sympy.polys.polyconfig import query
 import faiss
 import numpy as np 
 import json
@@ -15,7 +14,7 @@ class MemoryStore:
         self.model = SentenceTransformer("all-MiniLM-L6-v2")
         
         # load existing memory
-        if os.path.exists(INDEX_PATH):
+        if os.path.exists(INDEX_PATH) and os.path.getsize(INDEX_PATH) > 0:
             self.index = faiss.read_index(INDEX_PATH)
         else:
             self.index = faiss.IndexFlatL2(384)

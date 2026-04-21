@@ -17,3 +17,5 @@ def open_notepad(query: str = None):
 def list_files(query: str = None):
     """List files in current directory"""
     return str(os.listdir("."))
+
+    
